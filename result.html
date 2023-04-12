@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Script JavaScript</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		
+		var table = window.location.href ;
+    	var lien = new URL(table) ;
+		var vals = new Array() ;
+		var param = new URLSearchParams(lien.search);
+		
+
+		 var name1 = param.get("nom1") ;
+		 var tle1 = parseFloat(param.get("taille1")) / 100 ;
+		 var pds1 = parseFloat(param.get("poids1")) ;
+		 var name2 = param.get("nom2") ;
+		 var tle2 = parseFloat(param.get("taille2")) / 100 ;
+         var pds2 = parseFloat(param.get("poids2")) ;
+		
+
+         console.log(name1)
+         console.log(tle1)
+         console.log(pds1)
+         console.log(name2)
+         console.log(tle2)
+         console.log(pds2)
+
+
+
+		function sho1(bim) {
+			document.write("name: " + name1 +"<br> height: " + tle1 + "<br> weight: " + pds1 + "<br> l'IMC de " + name1 + " = " + bim)
+		}
+
+        function sho2(bim) {
+			document.write("name: " + name2 +"<br> height: " + tle2 + "<br> weight: " + pds2 + "<br> l'IMC de " + name2 + " = " + bim)
+		}
+
+        function calc1() {
+            var imc1 = pds1 / Math.pow(tle1, 2);	
+            sho1(imc1)
+		}
+
+        function calc2() {
+            var imc2 = pds2 / Math.pow(tle2, 2);	
+            sho2(imc2)
+		}
+    </script> 
+    
+    <input value="first row" type="button" onclick="calc1()"/>
+    <input value="second row" type="button" onclick="calc2()" />
+</body>
+</html>
